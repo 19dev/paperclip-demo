@@ -1,3 +1,15 @@
+# size düşen
+
+Şöyle çalışın
+
+    $ git clone git@github.com:seyyah/paperclip-demo.git
+    $ cd paperclip-demo/
+    $ bundle
+    $ rake db:migrate
+    $ rails s --binding=1.2.3.4 --port=3001
+
+Test: http://1.2.3.4:3001/articles
+
 # nasıl
 
 Komutlar
