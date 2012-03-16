@@ -9,6 +9,7 @@
     $ rails s --binding=1.2.3.4 --port=3001
 
 Test: http://1.2.3.4:3001/articles
+Heroku: http://paperclip-demos.heroku.com/articles
 
 # nasıl
 
@@ -71,6 +72,18 @@ Komutlar
 	2.times { @article.assets.build }
 
     $ vim ...
+
+Heroku
+
+    $ heroku create paperclip-demos
+
+    $ vim Gemfile
+    sqlite3 -> dev | test
+    pg -> production
+    $ bundle
+
+    $ git push heroku master
+    $ heroku rake db:migrate
 
 # kaynak
 
