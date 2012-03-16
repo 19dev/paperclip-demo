@@ -20,11 +20,23 @@
     <%= f.text_field :content %>
   </div>
 
-  <div class="paperclipStuff">
+  <div class="paperclipNewFiles">
     <%= f.fields_for :assets do |asset| %>
-      <div class="formRow">
-        <%= asset.file_field :image %>
-      </div>
+      <% if asset.object.new_record? %>
+        <div class="formRow">
+          <%= asset.file_field :image %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="paperclipExistingFiles">
+    <%= f.fields_for :assets do |asset| %>
+      <% unless asset.object.new_record? %>
+        <div class="thumbnail">
+          <%= link_to image_tag(asset.object.image.url(:thumb)),
+                      asset.object.image.url(:original) %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
